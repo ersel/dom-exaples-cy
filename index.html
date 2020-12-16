@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Examples</title>
+    <style>
+        #teaching-staff {
+            font-size: 40px;
+        }
+
+        .teacher-name {
+            color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="teaching-staff">
+        Egitmenler
+        <ol id="teacher-list">
+            <li class="teacher-name">Kemal</li>
+            <li class="teacher-name">Ersel</li>
+        </ol>
+        Name: <input type="text" id="teacher-name-input" />
+        <button id="add-teacher-btn">add teacher</button>
+    </div>
+    <script>
+        let addTeacherBtn = document.getElementById("add-teacher-btn");
+        addTeacherBtn.addEventListener("click", function () {
+            // 1. input kutusundaki ismi oku ve bir degiskene ata
+            const teacherNameInput = document.getElementById("teacher-name-input");
+            const name = teacherNameInput.value;
+            // 2. yeni bir <li> element yarat
+            let newListElement = document.createElement("li");
+            // 3. yeni <li> ogretmenin ismini bulundursun
+            newListElement.append(name);
+            // 4. yeni <li> yi <ol> tagina yerlestir
+            const teacherListElement = document.getElementById("teacher-list");
+            teacherListElement.appendChild(newListElement);
+        });
+    </script>
+</body>
+
+</html>
